@@ -73,6 +73,7 @@ Shift F5 :ExecCommand urxvt +sb -cr green -fg gray10 -bg black -tr -tint white -
 Shift F9 :ExecCommand mate-terminal -e ~/bin/py3shell
 
 # Mod1 Shift 0 :ExecCommand urxvt +sb -cr red -fg gray20 -bg gray98 -fn fixed -sl 80000 -bd cyan -T mechanoia -e ssh metaceptron.com -p32
+# Mod1 Shift 0 :ExecCommand mate-terminal -bd cyan -T zero -e ssh zero.mcn
 
 
 # current window commands

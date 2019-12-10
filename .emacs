@@ -1,7 +1,8 @@
 (package-initialize)
 
 ;;(load-file (convert-standard-filename "~/.emacs-configs.d/init.el"))
-(load-file (convert-standard-filename "~/.custom-configs/emacs.d/init.el"))
+;;(load-file (convert-standard-filename "~/.custom-configs/emacs.d/init.el"))
+(load-file (convert-standard-filename "~/.dotfiles/emacs/init.el"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

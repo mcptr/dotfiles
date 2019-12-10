@@ -6,7 +6,7 @@
 (byte-recompile-directory (concat custom-emacs-directory "ext") 0)
 
 
-(mapc 'load-library (file-expand-wildcards (concat custom-emacs-directory "emacs/*.elc")))
+(mapc 'load-library (file-expand-wildcards (concat custom-emacs-directory "base/*.elc")))
 (mapc 'load-library (file-expand-wildcards (concat custom-emacs-directory "ext/*.el")))
 (mapc 'load-library (file-expand-wildcards (concat custom-emacs-directory "functions/*.el")))
 
