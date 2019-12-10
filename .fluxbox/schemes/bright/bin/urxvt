@@ -1,0 +1,3 @@
+#!/bin/sh
+
+urxvt +sb -cr green -bg white -fg black -fn fixed -sl 80000
