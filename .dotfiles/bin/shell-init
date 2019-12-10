@@ -2,10 +2,10 @@
 
 set -E emacs
 
-DEFAULT_VIRTUAL_ENV=${DEFAULT_VIRTUAL_ENV:-"~/.venv-home"}
+DEFAULT_VIRTUAL_ENV=~/.venv-home
 
 if test -z ${VIRTUAL_ENV} && test -d $DEFAULT_VIRTUAL_ENV; then
-    . ~/.venv-home/bin/activate
+    . $DEFAULT_VIRTUAL_ENV/bin/activate
 fi
 
 echo -n "#" $(date +"%Y-%m-%d") : $0 : $$
