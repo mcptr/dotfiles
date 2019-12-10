@@ -2,10 +2,9 @@
 
 set -E emacs
 
-VIRTUAL_ENV=${VIRTUAL_ENV:-}
-DEFAULT_VIRTUAL_ENV=${DEFAULT_VIRTUAL_ENV:-}
+DEFAULT_VIRTUAL_ENV=${DEFAULT_VIRTUAL_ENV:-"~/.venv-home"}
 
-if test -z $VIRTUAL_ENV && test -d $DEFAULT_VIRTUAL_ENV; then
+if test -z ${VIRTUAL_ENV} && test -d $DEFAULT_VIRTUAL_ENV; then
     . ~/.venv-home/bin/activate
 fi
 

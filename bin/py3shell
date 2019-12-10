@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. ~/.venv/bin/activate
+python3 -i ~/bin/py3-start-shell.py
+
+
+

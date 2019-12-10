@@ -30,4 +30,4 @@ fi
 fbsetroot -solid "#002130"
 exec fluxbox
 # or if you want to keep a log:
-# exec fluxbox -log "/home/minus/.fluxbox/log"
+# exec fluxbox -log "/home/bartek/.fluxbox/log"

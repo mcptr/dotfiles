@@ -1,5 +1,4 @@
-Shift F8 :ExecCommand mate-terminal ~/.custom-configs/bash.d/my-shell
-
+Shift F8 :ExecCommand mate-terminal ~/.dotfiles/shell-init
 
 
 ! fluxbox-update_configs added '(workspace=[current])' to (Next|Prev)(Window|Group)
@@ -72,7 +71,6 @@ Shift F5 :ExecCommand urxvt +sb -cr green -fg gray10 -bg black -tr -tint white -
 # Mod1 Shift F9 :ExecCommand urxvt +sb -cr orange -fg black -bg white -fn '-*-terminus-*-*-*-*-32-*-*-*-*-*-*-*' -sl 80000 -bd green -e ~/bin/py3shell
 
 Shift F9 :ExecCommand mate-terminal -e ~/bin/py3shell
-# ~/.custom-configs/bash.d/my-shell
 
 # Mod1 Shift 0 :ExecCommand urxvt +sb -cr red -fg gray20 -bg gray98 -fn fixed -sl 80000 -bd cyan -T mechanoia -e ssh metaceptron.com -p32
 
