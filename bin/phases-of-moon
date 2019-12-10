@@ -1,0 +1,3 @@
+#!/bin/sh
+
+emacs --batch -Q --eval "(progn (lunar-phases) (switch-to-buffer \"*Phases of Moon*\") (print (buffer-string)))"

@@ -1,0 +1,4 @@
+#!/bin/sh -x
+
+xrandr --auto --output eDP-1
+setxkbmap pl -option ctrl:nocaps

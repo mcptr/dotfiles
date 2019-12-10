@@ -1,0 +1,2 @@
+ssh t520-eth 'sudo /usr/sbin/pm-suspend &'
+
