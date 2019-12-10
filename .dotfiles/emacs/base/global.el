@@ -36,16 +36,12 @@
   )
 
 
-;; (if (eq window-system 'x)
-;;     (x11-setup)
-;;   (custom-set-variables '(confirm-kill-emacs nil))
-;;   )
+(if (eq window-system 'x)
+    (x11-setup)
+  (custom-set-variables '(confirm-kill-emacs nil))
+  )
 
-;; (when (window-system) (x11-setup))
-
-(custom-set-faces
- '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 113 :width normal :foundry "PfEd" :family "Noto Sans Mono"))))
- )
+(when (window-system) (x11-setup))
 
 (setq tab-width 4)
 

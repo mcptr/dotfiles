@@ -45,7 +45,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "black" :foreground "#839496" :inverse-video nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 113 :width normal :foundry "PfEd" :family "Noto Sans Mono")))))
+ '(default ((t (:inherit nil :stipple nil :foreground "#839496" :inverse-video nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 113 :width normal :foundry "PfEd" :family "Noto Sans Mono")))))
 
 (menu-bar-mode -1)
 (load-theme 'solarized-dark)
