@@ -1,0 +1,110 @@
+conky.config = {
+background = true,
+--hddtemp_host = "127.0.0.1",
+--hddtemp_port = "7634",
+
+cpu_avg_samples = 1,
+net_avg_samples = 2,
+double_buffer = true,
+no_buffers = true,
+text_buffer_size=1024,
+out_to_console = false,
+update_interval=3,
+alignment = "top_left",
+gap_x=5,
+gap_y=30,
+draw_shades = true,
+draw_outline = false,
+draw_borders = false,
+border_width=1,
+border_inner_margin=1,
+own_window = false,
+own_window_type = "desktop",
+own_window_transparent = true,
+use_xft = true,
+xftalpha=.1	,
+override_utf8_locale = true,
+uppercase = false,
+use_spacer = "none",
+stippled_borders=5,
+default_color ="888888",
+-- default_shade_color = "333333",
+-- default_outline_color = "ffffff",
+font = "monospace:size=10"
+}
+
+conky.text = [[
+${execi 60 uname -msnr}${alignc}
+$uptime
+${hr}
+System
+${offset 35}CPU1: ${cpu cpu1}% $alignr  ${exec awk '/cpu MHz/{i++}i==1{printf "%.f",$4; exit}' /proc/cpuinfo} MHz  ${cpubar cpu1 8,120}
+${offset 35}CPU2: ${cpu cpu2}% $alignr  ${exec awk '/cpu MHz/{i++}i==2{printf "%.f",$4; exit}' /proc/cpuinfo} MHz  ${cpubar cpu2 8,120}
+${offset 35}CPU3: ${cpu cpu3}% $alignr  ${exec awk '/cpu MHz/{i++}i==3{printf "%.f",$4; exit}' /proc/cpuinfo} MHz  ${cpubar cpu3 8,120}
+${offset 35}CPU4: ${cpu cpu4}% $alignr  ${exec awk '/cpu MHz/{i++}i==4{printf "%.f",$4; exit}' /proc/cpuinfo} MHz  ${cpubar cpu4 8,120}
+# ${offset 35}CPU1: ${cpu cpu1}% ${cpubar cpu1 8,120} 
+# ${offset 35}CPU2: ${cpu cpu2}% ${cpubar cpu2 8,120}
+# ${offset 35}CPU3: ${cpu cpu3}% ${cpubar cpu3 8,120}
+# ${offset 35}CPU4: ${cpu cpu4}% ${cpubar cpu4 8,120}
+
+${offset 35}${exec sensors | grep "Core 0" |  cut -d\( -f 1}
+${offset 35}${exec sensors | grep "Core 1" |  cut -d\( -f 1}
+# ${offset 35}${exec sensors | grep "Core 2" |  cut -d\( -f 1}
+# ${offset 35}${exec sensors | grep "Core 3" |  cut -d\( -f 1}
+
+
+${offset 35}ACPI Temp: ${acpitemp}
+# FAN level: ${exec grep level /proc/acpi/ibm/fan | head -1  | rev | cut -f 1 | rev}
+#, ${exec service thinkfan status}
+${offset 35}${exec acpi -a | sed -e 's/\ \+/ /g' | sed -e 's/^\ //g'}
+${offset 35}${exec acpi -b | sed -e 's/\ \+/ /g' | sed -e 's/^\ //g'}
+# ${offset 35}Battery: ${exec sysctl -n hw.acpi.battery.life}
+
+
+${offset 35}Memory: $mem / $memmax $alignr  $memperc% 
+${offset 35}${membar}
+
+${offset 35}Swap: $swap / $swapmax $alignr  $swapperc% 
+${offset 35}${swapbar}
+
+Processes ${processes}
+${offset 35}Run   : ${running_processes}
+${offset 35}CPU   : ${top name 1}${goto 250}${top pid 1}${alignr}${top cpu 1}%
+${offset 35}CPU   : ${top name 2}${goto 250}${top pid 2}${alignr}${top cpu 2}%
+${offset 35}RAM   : ${top_mem name 1}${goto 250}${top_mem pid 1}${alignr}${top_mem mem 1}%
+${offset 35}RAM   : ${top_mem name 2}${goto 250}${top_mem pid 2}${alignr}${top_mem mem 2}%
+
+${offset 35}${loadgraph}
+Network:
+(Connections: ${tcp_portmon 1 65535 count})
+${offset 35}UL: ${upspeed wlan0} /  ${totalup wlan0}${alignr}${upspeedgraph wlan0 10,170 000000 000000}
+${offset 35}DL: ${downspeed wlan0} /  ${totaldown wlan0}${alignr}${downspeedgraph wlan0 10,170 000000 000000}
+${if_existing /proc/net/route wlan0}
+${offset 35}${gw_iface} ${wireless_link_qual_perc wlan0}% ${wireless_essid wlan0} \
+${else}${offset 35}wlan0: ${endif} ${if_existing /proc/net/route wlan0}$alignr ${addr wlan0} -> ${gw_ip}
+
+# ${offset 35}wlan0: ${exec ifconfig wlan0 | grep inet | cut -f 2 | cut -d\  -f 2}
+#${offset 35}($addr eth0)
+#${offset 35}($addr wwan0)
+#${offset 35}($addr wlan0)
+# ${offset 35}route: ${exec route get default | grep gateway | cut -d: -f 2}
+
+Drives
+${offset 35}/root : ${fs_type /}${goto 180}Used ${fs_used_perc /}%${alignr}Free ${fs_free /}
+${offset 35}${fs_bar 6 /}
+${offset 35}/home : ${fs_type /home}${goto 180}Used ${fs_used_perc /home}%${alignr}Free ${fs_free /home}
+${offset 35}${fs_bar 6 /home}
+# ${offset 35}/zstorage : ${fs_type /zstorage}${goto 180}Used ${fs_used_perc /zstorage}%${alignr}Free ${fs_free /zstorage}
+# ${offset 35}${fs_bar 6 /zstorage}
+# ${offset 35}/zusr/local : ${fs_type /zusr/local}${goto 180}Used ${fs_used_perc /zusr/local}%${alignr}Free ${fs_free /zusr/local}
+# ${offset 35}${fs_bar 6 /zusr/local}
+# ${offset 35}/zusr/ports : ${fs_type /zusr/ports}${goto 180}Used ${fs_used_perc /zusr/ports}%${alignr}Free ${fs_free /zusr/ports}
+# ${offset 35}${fs_bar 6 /zusr/ports}
+# ${offset 35}/zusr/src : ${fs_type /zusr/src}${goto 180}Used ${fs_used_perc /zusr/src}%${alignr}Free ${fs_free /zusr/src}
+# ${offset 35}${fs_bar 6 /zusr/src}
+
+# ${offset 35}/dev/sda ${hddtemp /dev/sda}°C
+# ${offset 35}/dev/sdb ${hddtemp /dev/sdb}°C
+
+#${hr}
+]]

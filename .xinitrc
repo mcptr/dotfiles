@@ -1,0 +1,1 @@
+.custom-configs/x11/xinitrc
