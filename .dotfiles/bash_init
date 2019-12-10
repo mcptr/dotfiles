@@ -1,0 +1,9 @@
+test -f ~/.dotfiles/bash/env && . ~/.dotfiles/bash/env
+test -f ~/.dotfiles/bash/sys && . ~/.dotfiles/bash/sys
+test -f ~/.dotfiles/bash/aliases && . ~/.dotfiles/bash/aliases
+test -f ~/.dotfiles/bash/completion && . ~/.dotfiles/bash/completion
+test -f ~/.dotfiles/bash/dircolors && . ~/.dotfiles/bash/dircolors
+test -f ~/.dotfiles/bash/prompt && . ~/.dotfiles/bash/prompt
+test -f ~/.dotfiles/bash/virtualenvwrapper && . ~/.dotfiles/bash/virtualenvwrapper
+
+. ~/.dotfiles/bin/shell-init

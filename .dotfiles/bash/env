@@ -1,0 +1,4 @@
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export DEFAULT_VIRTUAL_ENV=~/.venv-home
+export EDITOR='emacs -nw -q --no-splash'

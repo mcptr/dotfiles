@@ -1,14 +1,14 @@
 .PHONY: all clean install permissions
 
-CP		= cp --verbose --update --recursive --no-dereference
-CHMOD		= chmod --verbose --preserve-root
-
+CP		?= cp --verbose --update --recursive --no-dereference
+CHMOD		?= chmod --verbose --preserve-root
+VIRTUAL_ENV	?= ~/.venv-home
 
 all:
 
 clean:
 
-install: system-deps install-git-configs set-permissions
+install: system-deps install-git-configs set-permissions setup-py
 
 install-git-configs:
 	$(CP) -v .gitconfig .gitignore ~
@@ -22,3 +22,9 @@ system-deps: system-deps-debian
 
 system-deps-debian:
 	which apt && sudo apt install bash git
+
+assert-venv:
+	test ! -z $(VIRTUAL_ENV) && test -d $(VIRTUAL_ENV)
+
+setup-py: assert-venv
+	pip install -r ~/.dotfiles/requirements.txt

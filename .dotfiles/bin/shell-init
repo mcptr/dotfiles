@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -E emacs
+
+VIRTUAL_ENV=${VIRTUAL_ENV:-}
+DEFAULT_VIRTUAL_ENV=${DEFAULT_VIRTUAL_ENV:-}
+
+if test -z $VIRTUAL_ENV && test -d $DEFAULT_VIRTUAL_ENV; then
+    . ~/.venv-home/bin/activate
+fi
+
+echo -n "#" $(date +"%Y-%m-%d") : $0 : $$
+test ! -z $VIRTUAL_ENV && echo : $(python --version) : $VIRTUAL_ENV || echo ""
+echo "#" $(umask -p), $(umask -S)
