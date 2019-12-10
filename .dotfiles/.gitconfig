@@ -1,0 +1,12 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	di = diff
+	unstage = reset HEAD --
+	last = log -1 HEAD
+
+[user]
+        name = Bartłomiej Kurek
+        email = dev@metaceptron.com
