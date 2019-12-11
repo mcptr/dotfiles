@@ -32,7 +32,7 @@ _mk_prompt_full()
     fi
 
     AGENT_STR="\e"
-    if test -n "${SSH_AUTH_SOCK}" && kill -0 ${SSH_AGENT_PID}; then
+    if test -n "${SSH_AGENT_PID}" && kill -0 ${SSH_AGENT_PID}; then
 	AGENT_STR="${GREEN}agent:${SSH_AGENT_PID}${RESET}"
     fi
 
@@ -41,8 +41,13 @@ _mk_prompt_full()
 	VENV_STR="($(basename $VIRTUAL_ENV))"
     fi
 
-    USER_COLOR=$WHITE
-    HOST_COLOR=$GREEN
+    if test -z ${USER_COLOR}; then
+       USER_COLOR=$WHITE
+    fi
+
+    if test -z ${HOST_COLOR}; then
+	HOST_COLOR=$GREEN
+    fi
     if test $(id -u) = 0; then
 	USER_COLOR=$RED_BG
 	HOST_COLOR=$WHITE_BG
