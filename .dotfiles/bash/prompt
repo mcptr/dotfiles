@@ -53,12 +53,14 @@ _mk_prompt_full()
 
 
 case "$PROMPT_STYLE" in
+    FULL)
+	PROMPT_COMMAND=_mk_prompt_full
+	;;
     USER1)
 	PS1="($?) j:\j \[\e[6;07;32m\] \u@\[\e[1;07;36m\]\h \[\e[00m\] \w $ "
 	;;
     USER2)
-	# PS1="\[\e[1;07;31m\] \u@\h \[\e[00m\] \w $ "
-	PROMPT_COMMAND=_mk_prompt_full
+	PS1="\[\e[1;07;31m\] \u@\h \[\e[00m\] \w $ "
 	;;
     USER3)
 	PS1="\[\e[1;07;39m\]\h \[\e[00m\] \[\e[1;07;35m\] \u \[\e[00m\] \w \[\e[00m\] ($?) j:\j $ "
