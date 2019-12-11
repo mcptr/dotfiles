@@ -34,8 +34,8 @@
   [Close]	{yes}
 [end]
 [app] (name=Navigator) (class=Firefox) (role=browser)
-  [Dimensions]	{100% 100%}
-  [Position]	(UPPERLEFT)	{0% 0%}
+  [Dimensions]	{78% 78%}
+  [Position]	(UPPERLEFT)	{10% 4%}
   [Close]	{yes}
 [end]
 [app] (name=emacs) (class=Emacs24)
