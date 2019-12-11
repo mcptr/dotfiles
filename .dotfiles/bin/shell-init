@@ -8,6 +8,6 @@ if test -d $DEFAULT_VIRTUAL_ENV; then
     . $DEFAULT_VIRTUAL_ENV/bin/activate
 fi
 
-echo -n "#" $(date +"%Y-%m-%d") : $0 : $$
-test ! -z $VIRTUAL_ENV && echo : $(python --version) : $VIRTUAL_ENV || echo ""
-echo "#" $(umask -p), $(umask -S)
+echo -n "#" $(date +"%Y-%m-%d | %H:%M:%S") : $$
+test ! -z $VIRTUAL_ENV && echo ": $(python -V)" || echo ""
+# echo "#" $(umask -p), $(umask -S)

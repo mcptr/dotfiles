@@ -1,10 +1,45 @@
+RESET='\[\e[0m\]'
+RED='\[\e[0;31m\]'
+GREEN='\[\e[0;32m\]'
+BYEL='\[\e[1;33m\]'
+BBLU='\[\e[1;34m\]'
+PUR='\[\e[0;35m\]'
+
+_mk_prompt_with_status()
+{
+    if test $? = 0; then
+	STATUS="${GREEN}OK${RESET}"
+    else
+	STATUS="${RED}FAILED${RESET}"
+    fi
+
+    JOBS_STR="\e"
+    NJOBS=$(expr $(jobs -p | wc -l))
+    if test ${NJOBS} -gt 0; then
+	JOBS_STR="[${RED}jobs:\\j${RESET}]"
+    fi
+
+    AGENT_STR="\e"
+    if test ! -z ${SSH_AUTH_SOCK} && kill -0 ${SSH_AGENT_PID}; then
+	AGENT_STR="${GREEN}agent:${SSH_AGENT_PID}${RESET}"
+    fi
+
+    VENV_STR="\e"
+    if test ! -z ${VIRTUAL_ENV}; then
+	VENV_STR="($(basename $VIRTUAL_ENV))"
+    fi
+    
+    PS1="\n\[\e[0;00;37m\]\u${RESET}@\[\e[0;00;32m\]\h${RESET} ($$) ${JOBS_STR} ${AGENT_STR} \t ${VENV_STR}\n\w ${STATUS} $ "
+}
+
+
 case "$PROMPT_STYLE" in
     USER1)
 	PS1="($?) j:\j \[\e[6;07;32m\] \u@\[\e[1;07;36m\]\h \[\e[00m\] \w $ "
 	;;
     USER2)
 	# PS1="\[\e[1;07;31m\] \u@\h \[\e[00m\] \w $ "
-	PS1="($?) j:\j \[\e[6;07;33m\] \u@\[\e[0;07;34m\]\h \[\e[00m\] \w \n$ "
+	PROMPT_COMMAND=_mk_prompt_with_status
 	;;
     USER3)
 	PS1="\[\e[1;07;39m\]\h \[\e[00m\] \[\e[1;07;35m\] \u \[\e[00m\] \w \[\e[00m\] ($?) j:\j $ "
