@@ -19,10 +19,15 @@ _mk_prompt_full()
 	STATUS="${RED}FAILED${RESET}"
     fi
 
+    AGENT_STR="\e"
     SSH_STR="\e"
     if test -n "${SSH_CONNECTION}"; then
 	_SSH_CONN=$(echo ${SSH_CONNECTION} | awk '{ print $1":"$2 }')
 	SSH_STR="${WHITE_BG} SSH ${RESET} ${_SSH_CONN}"
+    else
+	if test -n "${SSH_AGENT_PID}" && kill -0 ${SSH_AGENT_PID}; then
+	    AGENT_STR="${GREEN}agent:${SSH_AGENT_PID}${RESET}"
+	fi
     fi
 
     JOBS_STR="\e"
@@ -31,10 +36,6 @@ _mk_prompt_full()
 	JOBS_STR="[${RED}jobs:\\j${RESET}]"
     fi
 
-    AGENT_STR="\e"
-    if test -n "${SSH_AGENT_PID}" && kill -0 ${SSH_AGENT_PID}; then
-	AGENT_STR="${GREEN}agent:${SSH_AGENT_PID}${RESET}"
-    fi
 
     VENV_STR="\e"
     if test -n "${VIRTUAL_ENV}"; then
