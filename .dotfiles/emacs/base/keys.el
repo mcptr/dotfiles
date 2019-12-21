@@ -1,4 +1,5 @@
 (global-set-key [f1] 'ibuffer)
+
 (global-set-key [f2] 'hs-hide-all)
 (global-set-key [f3] 'hs-show-all)
 (global-set-key [f4] 'hs-toggle-hiding)

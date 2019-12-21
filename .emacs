@@ -26,7 +26,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (jinja2-mode emacs-setup solarized-theme zerodark-theme dracula-theme w3m muse god-mode magit markdown-mode flucui-themes dired-hide-dotfiles nova-theme elscreen yaml-mode ## org-clock-csv python-mode smart-mode-line company-quickhelp elpy)))
+    (bison-mode counsel-gtags projectile rtags jinja2-mode emacs-setup solarized-theme zerodark-theme dracula-theme w3m muse god-mode magit markdown-mode flucui-themes dired-hide-dotfiles nova-theme elscreen yaml-mode ## org-clock-csv python-mode smart-mode-line company-quickhelp elpy)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(show-parent-style (quote mixed))

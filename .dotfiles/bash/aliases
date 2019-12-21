@@ -9,6 +9,8 @@ alias sa-lock="ssh-agent -x"
 alias sa-unlock="ssh-agent -X"
 alias sak="ssh-agent -k"
 alias j="jobs -l"
+alias k9="kill -9"
+alias k9l="jobs -p | tail -1 | xargs kill -9"
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 

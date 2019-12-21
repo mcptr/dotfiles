@@ -25,7 +25,7 @@ _mk_prompt_full()
 	_SSH_CONN=$(echo ${SSH_CONNECTION} | awk '{ print $1":"$2 }')
 	SSH_STR="${WHITE_BG} SSH ${RESET} ${_SSH_CONN}"
     else
-	if test -n "${SSH_AGENT_PID}" && kill -0 ${SSH_AGENT_PID}; then
+	if test -n "${SSH_AGENT_PID}" && kill -0 ${SSH_AGENT_PID} > 0; then
 	    AGENT_STR="${GREEN}agent:${SSH_AGENT_PID}${RESET}"
 	fi
     fi
