@@ -1,6 +1,6 @@
 *
 !/.dotfiles
-.fluxbox/apps
+/.fluxbox/apps
 
 # just to be sure
 .ssh/

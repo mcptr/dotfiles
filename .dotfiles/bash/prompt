@@ -30,7 +30,7 @@ _mk_prompt_full()
 	STATUS="${RED}FAILED${RESET}"
     fi
 
-    SSH_STR=""
+    SSH_STR="${DEL}"
     if test -n "${SSH_CONNECTION}"; then
 	_SSH_CONN=$(echo ${SSH_CONNECTION} | awk '{ print $1":"$2 }')
 	SSH_STR="${WHITE_BG} SSH ${RESET} ${_SSH_CONN}"
@@ -72,7 +72,7 @@ _mk_prompt_full()
 	HOST_COLOR=$WHITE_BG
     fi
 
-    PS1="\n${USER_COLOR}\u${RESET}@${HOST_COLOR}\h${RESET} ($$) ${JOBS_STR} ${AGENT_STR} \t ${VENV_STR} ${GIT_ORIGIN_STR}\n${SSH_STR}${STATUS} ${GIT_STR} \w $ "
+    PS1="\n${USER_COLOR}\u${RESET}@${HOST_COLOR}\h${RESET} ($$) ${JOBS_STR} ${AGENT_STR} \t ${VENV_STR} ${GIT_ORIGIN_STR}\n${SSH_STR} ${STATUS} ${GIT_BRANCH_STR} \w $ "
 }
 
 
