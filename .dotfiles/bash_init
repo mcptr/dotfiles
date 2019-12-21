@@ -1,3 +1,6 @@
+test -f ~/.bash_config && . ~/.bash_config
+
+
 test -f ~/.dotfiles/bash/env && . ~/.dotfiles/bash/env
 test -f ~/.dotfiles/bash/ssh-agent && . ~/.dotfiles/bash/ssh-agent
 test -f ~/.dotfiles/bash/sys && . ~/.dotfiles/bash/sys

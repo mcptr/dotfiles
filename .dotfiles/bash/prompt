@@ -14,6 +14,9 @@ ROSE='\[\e[0;35m\]'
 
 DEL='\[\e\]'
 
+test -f ~/.bash_prompt && . ~/.bash_prompt
+
+
 _mk_prompt_full()
 {
     GIT_ORIGIN_STR=""
