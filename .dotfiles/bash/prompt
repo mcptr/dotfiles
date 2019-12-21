@@ -11,6 +11,8 @@ BYEL='\[\e[1;33m\]'
 BBLU='\[\e[1;34m\]'
 PUR='\[\e[0;35m\]'
 
+DEL='\[\e\]'
+
 _mk_prompt_full()
 {
     if test $? = 0; then
@@ -19,8 +21,7 @@ _mk_prompt_full()
 	STATUS="${RED}FAILED${RESET}"
     fi
 
-    AGENT_STR="\e"
-    SSH_STR="\e"
+    SSH_STR="${DEL}"
     if test -n "${SSH_CONNECTION}"; then
 	_SSH_CONN=$(echo ${SSH_CONNECTION} | awk '{ print $1":"$2 }')
 	SSH_STR="${WHITE_BG} SSH ${RESET} ${_SSH_CONN}"
@@ -30,14 +31,22 @@ _mk_prompt_full()
 	fi
     fi
 
-    JOBS_STR="\e"
+    JOBS_STR="${DEL}"
     NJOBS=$(expr $(jobs -p | wc -l))
     if test ${NJOBS} -gt 0; then
 	JOBS_STR="[${RED}jobs:\\j${RESET}]"
     fi
 
+    AGENT_STR="${DEL}"
+    if test -n "${SSH_AGENT_PID}"; then
+	if kill -0 ${SSH_AGENT_PID} 2>&1 > /dev/null; then
+	    AGENT_STR="${GREEN}agent:${SSH_AGENT_PID}${RESET}"
+	else
+	    unset SSH_AGENT_PID
+	fi
+    fi
 
-    VENV_STR="\e"
+    VENV_STR="${DEL}"
     if test -n "${VIRTUAL_ENV}"; then
 	VENV_STR="($(basename $VIRTUAL_ENV))"
     fi

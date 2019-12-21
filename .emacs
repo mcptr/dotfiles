@@ -24,6 +24,9 @@
  '(initial-scratch-message nil)
  '(make-backup-files nil)
  '(menu-bar-mode nil)
+ '(org-agenda-files
+   (quote
+    ("/home/bartek/office/agenda/lifelog.org" "/home/bartek/office/agenda/logzilla.org" "/home/bartek/office/agenda/work.org")))
  '(package-selected-packages
    (quote
     (bison-mode counsel-gtags projectile rtags jinja2-mode emacs-setup solarized-theme zerodark-theme dracula-theme w3m muse god-mode magit markdown-mode flucui-themes dired-hide-dotfiles nova-theme elscreen yaml-mode ## org-clock-csv python-mode smart-mode-line company-quickhelp elpy)))
@@ -33,6 +36,7 @@
  '(tab-always-indent t)
  '(tool-bar-mode nil)
  '(transient-mark-mode t)
+ '(w3m-home-page "http://duckduckgo.com/html")
  '(which-function-mode t))
 ;; (custom-set-faces
 ;;  ;; custom-set-faces was added by Custom.
@@ -46,7 +50,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :foreground "#839496" :inverse-video nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 113 :width normal :foundry "PfEd" :family "Noto Sans Mono")))))
+ '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 113 :width normal :foundry "PfEd" :family "Noto Sans Mono")))))
 
 ;;(menu-bar-mode -1)
 (load-theme 'solarized-dark)

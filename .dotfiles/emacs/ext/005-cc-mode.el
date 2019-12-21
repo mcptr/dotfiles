@@ -1,15 +1,15 @@
 (require 'cc-mode)
 
 
-(defun my-build-tab-stop-list (width)   
-  (let ((num-tab-stops (/ 80 width))               
-	(counter 1)               
-	(ls nil))               
-    (while (<= counter num-tab-stops)                 
-      (setq ls (cons (* width counter) ls))         
-      (setq counter (1+ counter)))   
-    (set (make-local-variable 'tab-stop-list) 
-	 (nreverse ls)))) 
+(defun my-build-tab-stop-list (width)
+  (let ((num-tab-stops (/ 80 width))
+	(counter 1)
+	(ls nil))
+    (while (<= counter num-tab-stops)
+      (setq ls (cons (* width counter) ls))
+      (setq counter (1+ counter)))
+    (set (make-local-variable 'tab-stop-list)
+	 (nreverse ls))))
 
 (c-add-style "mycodingstyle"
 	     '((c-basic-offset . 4)
@@ -39,15 +39,15 @@
 						 (block-open           . 0)
 						 (innamespace          . 0)
 						 ;; (knr-argdecl-intro    . -)))
-						 
+
 						 ))))
 
 
 
-(defun my-c-mode-common-hook ()   
+(defun my-c-mode-common-hook ()
   (setq tab-width 4)
-  (my-build-tab-stop-list tab-width)   
-  (setq c-basic-offset tab-width)) 
+  (my-build-tab-stop-list tab-width)
+  (setq c-basic-offset tab-width))
 
 (defun my-c++-mode-hook ()
   (c-set-style "mycodingstyle"))
@@ -58,15 +58,14 @@
 (add-hook 'c-mode-common-hook 'my-c++-mode-hook)
 
 
-(add-hook 'c-mode-hook 
-   '(lambda () 
+(add-hook 'c-mode-hook
+   '(lambda ()
       (gtags-mode t)
-      (add-hook 'before-save-hook #'whitespace-cleanup)
+      (add-hook 'before-save-hook 'whitespace-cleanup)
       ))
 
-(add-hook 'c++-mode-hook 
-   '(lambda () 
+(add-hook 'c++-mode-hook
+   '(lambda ()
       (gtags-mode t)
-      (add-hook 'before-save-hook #'whitespace-cleanup)
+      (add-hook 'before-save-hook 'whitespace-cleanup)
       ))
-		  

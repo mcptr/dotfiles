@@ -1,9 +1,15 @@
-alias ll="ls -alF"
+
+# # Add an "alert" alias for long running commands.  Use like so:
+# #   sleep 10; alert
+
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias ll="ls -lF"
 alias la="ls -A"
 alias l="ls -CF"
 alias sl="ls"
 alias s="sudo"
-alias ssh-add="ssh-add -c"
+# alias ssh-add="ssh-add -c"
 alias sa="ssh-agent"
 alias sa-lock="ssh-agent -x"
 alias sa-unlock="ssh-agent -X"
@@ -11,11 +17,6 @@ alias sak="ssh-agent -k"
 alias j="jobs -l"
 alias k9="kill -9"
 alias k9l="jobs -p | tail -1 | xargs kill -9"
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-
-
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias e='emacs -nw -bg black'
 alias ec='emacsclient -nq'
@@ -25,3 +26,7 @@ alias ggl="links google.com/ncr"
 alias mc="mc -b"
 alias ssh="ssh -A"
 alias venv="test -d .venv && . .venv/bin/activate"
+alias make="make -j $(nproc)"
+
+alias bash-reload="source ~/.bashrc"
+
