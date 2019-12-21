@@ -220,13 +220,11 @@ XF86AudioMicMute :ExecCommand ~/bin/thinkpad/multimedia/mute_mic_toggle.sh
 XF86TouchpadToggle :ExecCommand ~/bin/thinkpad/input/touchpad_toggle.sh
 XF86Battery :ExecCommand ~/bin/thinkpad/utils/battery_info.sh
 XF86ScreenSaver :ExecCommand slock
-XF86MonBrightnessDown :ExecCommand ~/bin/thinkpad/utils/brightness.sh 0
-XF86MonBrightnessUp :ExecCommand ~/bin/thinkpad/utils/brightness.sh 1
+# XF86MonBrightnessDown :ExecCommand xterm -e "~/bin/laptop/brightness.sh - 100"
+# XF86MonBrightnessUp :ExecCommand xterm -e ~/bin/laptop/brightness.sh + 100
 XF86Sleep :ExecCommand (slock &; amixer -D pulse sset Master off; sudo /usr/sbin/pm-suspend)
 XF86Suspend :ExecCommand (slock &; amixer -D pulse sset Master off; sudo /usr/sbin/pm-hibernate)
 Print :ExecCommand /usr/bin/scrot -s 
 
 # chained:
 #Mod1 F12 Control m :ExecCommand xterm
-
-

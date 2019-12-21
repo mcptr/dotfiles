@@ -94,8 +94,8 @@ ${offset 35}/root : ${fs_type /}${goto 180}Used ${fs_used_perc /}%${alignr}Free 
 ${offset 35}${fs_bar 6 /}
 ${offset 35}/home : ${fs_type /home}${goto 180}Used ${fs_used_perc /home}%${alignr}Free ${fs_free /home}
 ${offset 35}${fs_bar 6 /home}
-# ${offset 35}/zstorage : ${fs_type /zstorage}${goto 180}Used ${fs_used_perc /zstorage}%${alignr}Free ${fs_free /zstorage}
-# ${offset 35}${fs_bar 6 /zstorage}
+${offset 35}/mnt/work : ${fs_type /mnt/work}${goto 180}Used ${fs_used_perc /mnt/work}%${alignr}Free ${fs_free /mnt/work}
+${offset 35}${fs_bar 6 /mnt/work}
 # ${offset 35}/zusr/local : ${fs_type /zusr/local}${goto 180}Used ${fs_used_perc /zusr/local}%${alignr}Free ${fs_free /zusr/local}
 # ${offset 35}${fs_bar 6 /zusr/local}
 # ${offset 35}/zusr/ports : ${fs_type /zusr/ports}${goto 180}Used ${fs_used_perc /zusr/ports}%${alignr}Free ${fs_free /zusr/ports}
