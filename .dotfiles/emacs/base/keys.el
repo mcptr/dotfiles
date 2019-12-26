@@ -11,6 +11,8 @@
 (global-set-key [f10] 'menu-bar-mode)  ;;sr-speedbar-select-window
 (global-set-key [f11] 'highlight-changes-mode)
 (global-set-key [f12] 'sr-speedbar-select-window)
+
+(global-set-key (kbd "<C-f9>") 'magit-status)
 (global-set-key (kbd "<C-f12>") 'sr-speedbar-toggle)
 
 ;;(global-set-key "\M-\C-r" 'query-replace)
