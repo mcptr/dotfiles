@@ -19,5 +19,5 @@ conky &
 wicd-gtk -t &
 volumeicon &
 sh ~/bin/batt_notify.sh &
-xautolock -time 4 -locker /usr/bin/slock &
+xautolock -time 3 -locker /usr/bin/slock &
 exec startfluxbox
