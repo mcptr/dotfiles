@@ -12,6 +12,7 @@
 (global-set-key [f11] 'highlight-changes-mode)
 (global-set-key [f12] 'sr-speedbar-select-window)
 
+(global-set-key (kbd "<C-f5>") 'compile)
 (global-set-key (kbd "<C-f9>") 'magit-status)
 (global-set-key (kbd "<C-f12>") 'sr-speedbar-toggle)
 
