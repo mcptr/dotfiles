@@ -33,23 +33,23 @@ _mk_prompt_full()
 	STATUS="${RED}FAILED${RESET}"
     fi
 
-    SSH_STR="${DEL}"
+    SSH_STR=""
     if test -n "${SSH_CONNECTION}"; then
 	_SSH_CONN=$(echo ${SSH_CONNECTION} | awk '{ print $1":"$2 }')
-	SSH_STR="${WHITE_BG} SSH ${RESET} ${_SSH_CONN}"
+	SSH_STR="${WHITE_BG} SSH ${RESET} ${_SSH_CONN} "
     else
 	if test -n "${SSH_AGENT_PID}" && kill -0 ${SSH_AGENT_PID} 2>&1 > /dev/null; then
 	    AGENT_STR="${GREEN}agent:${SSH_AGENT_PID}${RESET}"
 	fi
     fi
 
-    JOBS_STR="${DEL}"
+    JOBS_STR=""
     NJOBS=$(expr $(jobs -p | wc -l))
     if test ${NJOBS} -gt 0; then
 	JOBS_STR="[${RED}jobs:\\j${RESET}]"
     fi
 
-    AGENT_STR="${DEL}"
+    AGENT_STR=""
     if test -n "${SSH_AGENT_PID}"; then
 	if kill -0 ${SSH_AGENT_PID} 2>&1 > /dev/null; then
 	    AGENT_STR="${GREEN}agent:${SSH_AGENT_PID}${RESET}"
@@ -58,7 +58,7 @@ _mk_prompt_full()
 	fi
     fi
 
-    VENV_STR="${DEL}"
+    VENV_STR=""
     if test -n "${VIRTUAL_ENV}"; then
 	VENV_STR="($(basename $VIRTUAL_ENV))"
     fi
@@ -75,7 +75,7 @@ _mk_prompt_full()
 	HOST_COLOR=$WHITE_BG
     fi
 
-    PS1="\n${USER_COLOR}\u${RESET}@${HOST_COLOR}\h${RESET} ($$) ${JOBS_STR} ${AGENT_STR} \t ${VENV_STR} ${GIT_ORIGIN_STR}\n${SSH_STR} ${STATUS} ${GIT_BRANCH_STR} \w $ "
+    PS1="\n${USER_COLOR}\u${RESET}@${HOST_COLOR}\h${RESET} ($$)${JOBS_STR} ${AGENT_STR} \t ${VENV_STR} ${GIT_ORIGIN_STR}\n${SSH_STR}${STATUS} ${GIT_BRANCH_STR} \w $ "
 }
 
 

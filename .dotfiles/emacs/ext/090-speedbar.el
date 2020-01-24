@@ -5,4 +5,11 @@
 	 (other-frame 0)))
 
 (setq sr-speedbar-right-side nil)
-(setq speedbar-initial-expansion-list-name "quick buffers")
+(setq speedbar-show-unknown-files t)
+;;(setq speedbar-initial-expansion-list-name "quick buffers")
+(setq sr-speedbar-width 20)
+(setq sr-speedbar-default-width 20)
+(setq sr-speedbar-max-width 30)
+(setq sr-speedbar-skip-other-window-p t)
+(setq speedbar-use-images nil)
+(setq speedbar-update-flag nil)

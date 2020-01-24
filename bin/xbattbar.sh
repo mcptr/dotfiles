@@ -2,4 +2,4 @@
 
 killall xbattbar
 
-xbattbar -c -a -t 3 top &
+xbattbar -c -a -t 1 top &
